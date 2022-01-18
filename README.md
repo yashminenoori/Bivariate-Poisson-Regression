@@ -1,2 +1,16 @@
-# Bivariate-Poisson-Regression
-Bivariate Poisson regression is intended for modeling when there is a pair of response variables in the form of count data that shows a high correlation value (Karlis &amp; Ntzoufras, 2005). Here I have 7 variables, where there are 2 dependent variables (Y) and 5 independent variables (X).
+library(bivpois)
+Y1<-data[,1];
+Y2<-data[,2];
+X1<-data[,3];
+X2<-data[,4];
+X3<-data[,5];
+X4<-data[,6];
+X5<-data[,7];
+fbp1<-lm.bp(Y1~X1+X2+X3+X4+X5,Y2~X1+X2+X3+X4+X5,data=data)
+fbp1$coef
+fbp1$loglikelihood
+fbp1$AIC
+fbp0<-lm.bp(Y1~1,Y2~1,data=data)
+fbp0$coef
+fbp0$loglikelihood
+fbp0$AIC
